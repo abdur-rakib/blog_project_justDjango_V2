@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container py-5">
+        <h2 class="font-weight-light mb-4">This is the results of your search:</h2>
+        {% for post in queryset %}
+            <a href="{{ post.get_absolute_url }}" class=" ml-2" style="color: blueviolet; font-size: 20px;">{{ post.title }}</a> <br>
+        {% empty %}
+        <h4 class="text-danger">Nothing found! <br><span class="text-dark mt-1">Search with appropriate word.</span></h4>
+        {% endfor %}
+    </div>
+{% endblock %}
